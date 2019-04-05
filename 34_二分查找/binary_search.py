@@ -46,6 +46,22 @@ class Solution(object):
 			else:
 				left = mid
 		return left
+	#https://leetcode.com/problems/valid-perfect-square/
+	def isPerfectSquare(self, num):
+		"""
+		:type num: int
+		:rtype: bool
+		"""
+		left, right = 0, num
+		while left <= right:
+			mid = int((left + right) / 2)
+			if mid * mid == num:
+				return True
+			elif mid * mid > num:
+				right = mid - 1
+			else:
+				left = mid + 1
+		return False
 
 
 
@@ -61,6 +77,7 @@ res_seq = [s.mySqrt_newton(i) for i in test_seq]
 print("res = ", res_seq)
 res_seq = [s.mySqrt_double(i) for i in test_seq]
 print("res = ", res_seq)
-
+res_seq = [s.isPerfectSquare(i) for i in test_seq]
+print("res = ", res_seq)
 
 
