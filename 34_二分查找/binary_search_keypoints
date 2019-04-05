@@ -1,0 +1,16 @@
+一、三个条件
+1.Sorted(有序，单调递增或递减)
+2.Bounded(有界)
+3.Accessible by index(可以通过索引访问)
+二、伪代码
+left,right = 0, len(array)-1
+while left<=right:
+	mid = (left+right) / 2
+	if array[mid]==target:
+		break or return result
+	elif array[mid] < target:
+		left = mid + 1
+	else:
+		right = mid - 1
+三、时间复杂度
+O(logN)
