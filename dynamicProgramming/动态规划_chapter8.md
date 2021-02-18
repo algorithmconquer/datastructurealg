@@ -38,7 +38,7 @@ public:
         for(int i=1; i<=m; i++){
             for(int j=1; j<=n; j++){
                 // 插入，删除
-                f[i][j] = min(f[i-1][j], f[i][j-1])+1;
+                f[i][j] = min(f[i][j-1], f[i-1][j])+1;
                 // 替换
                 f[i][j] = min(f[i-1][j-1]+(word1[i-1]!=word2[j-1]), f[i][j]);
             }
@@ -47,4 +47,17 @@ public:
     }
 };
 ```
+
+例如:
+
+```shell
+   i     j
+abcd,abcde;==>add操作:f[i][j-1]+1
+    i    j
+abcde,abcd;==>delete操作:f[i-1][j]+1
+```
+
+见下图
+
+<img src="/Users/zenmen/Projects/datastructurealg/images/image-20210218115503915.png" alt="image-20210218115503915" style="zoom:50%;" />
 
